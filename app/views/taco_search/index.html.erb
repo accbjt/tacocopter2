@@ -1,0 +1,29 @@
+<%= form_tag "/search", method: "post" do %>
+<div class="tacos-container row">
+	<div class="row">
+		<div class="large-6 columns tacos-section">
+			<div class="title">Select Taco to Find:</div>
+			<% @tacos.each do |taco| %>
+				<div>
+					<%= check_box_tag('taco_id[]', taco.id) %>
+					<%= label_tag('taco_name[]', taco.name) %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="sauces-container row">
+	<div class="row">
+		<div class="large-6 columns sauces-section">
+			<div class="title">Select Sauces to Find:</div>
+			<% @salsas.each do |salsa| %>
+				<div>
+					<%= check_box_tag('salsa_id[]', salsa.id) %>
+					<%= label_tag('salsa_id[]', salsa.name) %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<%= submit_tag("Search", class: "button radius search") %>
+</div>
+<% end %>
